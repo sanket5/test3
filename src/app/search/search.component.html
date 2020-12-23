@@ -1,0 +1,28 @@
+
+
+    <div class="heading">
+        <h4 >  Search For User Name  </h4>
+    </div>
+
+<div class="container">
+    <div class="search">
+        <div>
+            <label for="name"> User Name </label>
+            <input type="text" name="name" id="name" [(ngModel)]="name" (keyup)="searchUser()"  >
+        </div>
+        <div *ngIf="name">
+            <h4>Search Results: - </h4> 
+            <p> Select User to see details </p>
+            <br>
+            <table>
+                <tr *ngFor="let user of userList" (click)= selectUser(user) >
+                    <th> Name: {{ user.name }} </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="list">
+        <app-userlist [user]="user" >
+        </app-userlist>
+    </div>
+</div>
